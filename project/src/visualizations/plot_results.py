@@ -642,7 +642,7 @@ def plot_precision_recall_curve(model, X_test, y_test, nome_arquivo='precision_r
     # Caminho para salvar o gráfico
     pr_curve_fig_path = os.path.join(figures_path, f'{nome_arquivo}.png')
     plt.savefig(pr_curve_fig_path)
-    print(f"Gráfico Precision-Recall salvo em: {pr_curve_fig_path}")
+    print(f"Gráfico Precision-Recall salvo")
     plt.show()
 
     # Exibir o valor da AUC-PR
