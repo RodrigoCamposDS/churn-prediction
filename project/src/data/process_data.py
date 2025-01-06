@@ -38,7 +38,7 @@ def estatisticas_resumidas(coluna):
 
     # Gerando HTML
     stats_html = f"""
-     <table border="1" style="border-collapse: collapse; width: 32.5%;">
+     <table border="1" style="border-collapse: collapse; width: 50%;">
         <thead>
             <tr>
                 <th style="text-align: left;">Tendência Central</th>
