@@ -1,0 +1,16 @@
+pyproject.toml
+setup.py
+src/Churned.egg-info/PKG-INFO
+src/Churned.egg-info/SOURCES.txt
+src/Churned.egg-info/dependency_links.txt
+src/Churned.egg-info/top_level.txt
+src/data/load_data.py
+src/data/process_data.py
+src/data/split_data.py
+src/features/feature_selection.py
+src/models/evaluate_model.py
+src/models/train_model.py
+src/visualizations/plot_results.py
+tests/test_data_processing.py
+tests/test_models.py
+tests/test_visualizations.py

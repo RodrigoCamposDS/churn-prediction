@@ -1,0 +1,99 @@
+# ===================== #
+# SEÇÃO 1: PYTHON FILES #
+# ===================== #
+
+# Arquivos de cache do Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyp
+*.pyt
+
+# =========================== #
+# SEÇÃO 2: AMBIENTE VIRTUAL    #
+# =========================== #
+
+# Pasta do virtual environment
+venv/
+.env/
+.venv/
+
+# ========================= #
+# SEÇÃO 3: CONFIGURAÇÕES    #
+# ========================= #
+
+# Configurações locais do Python
+python.env.json
+python.*
+.env
+
+# Arquivos de configuração do VS Code
+.vscode/
+*.code-workspace
+
+# ============================ #
+# SEÇÃO 4: DEPENDÊNCIAS E LOGS #
+# ============================ #
+
+# Logs e bases de dados locais
+*.log
+*.sqlite3
+*.db
+
+# ===================== #
+# SEÇÃO 5: NOTEBOOKS    #
+# ===================== #
+
+# Arquivos gerados pelos notebooks
+.ipynb_checkpoints/
+
+# ============================ #
+# SEÇÃO 6: OUTPUTS E RELATÓRIOS #
+# ============================ #
+
+# Relatórios gerados
+reports/
+figures/
+*.png
+*.jpg
+*.jpeg
+
+# =========================== #
+# SEÇÃO 7: MODELOS TREINADOS  #
+# =========================== #
+
+# Modelos salvos e arquivos .pkl
+src/models/train_saved/
+*.pkl
+
+# =========================== #
+# SEÇÃO 8: CACHE DO PYTEST    #
+# =========================== #
+
+# Cache do pytest
+.pytest_cache/
+.cache/
+
+# ========================== #
+# SEÇÃO 9: DEPENDÊNCIAS      #
+# ========================== #
+
+# Dependências instaladas
+node_modules/
+dist/
+build/
+
+# ======================= #
+# EXCLUSÕES ESPECÍFICAS   #
+# ======================= #
+
+# Remover dados processados que não devem ser versionados
+src/data/interim/
+src/data/processed_data/
+
+
+# Ignorar a pasta do ambiente virtual
+venv/

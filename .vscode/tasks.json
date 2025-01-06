@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Pytest",
+            "type": "shell",
+            "command": "PYTHONPATH=src pytest tests/",
+            "group": "test",
+            "problemMatcher": [],
+            "detail": "Executa os testes com pytest."
+        }
+    ]
+}
