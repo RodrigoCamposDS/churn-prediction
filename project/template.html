@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Comparativo de Custos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relatório Comparativo de Custos</h1>
+    <table>
+        <tr>
+            <th>Modelo</th>
+            <th>Threshold</th>
+            <th>Falsos Positivos (FP)</th>
+            <th>Custo FP (R$)</th>
+            <th>Falsos Negativos (FN)</th>
+            <th>Custo FN (R$)</th>
+            <th>Custo Total (R$)</th>
+        </tr>
+        {% for linha in resultados %}
+        <tr>
+            <td>{{ linha.Modelo }}</td>
+            <td>{{ linha.Threshold }}</td>
+            <td>{{ linha.FP }}</td>
+            <td>{{ linha.Custo_FP }}</td>
+            <td>{{ linha.FN }}</td>
+            <td>{{ linha.Custo_FN }}</td>
+            <td>{{ linha.Custo_Total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

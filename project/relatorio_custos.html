@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Comparativo de Custos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relatório Comparativo de Custos</h1>
+    <table>
+        <tr>
+            <th>Modelo</th>
+            <th>Threshold</th>
+            <th>Falsos Positivos (FP)</th>
+            <th>Custo FP (R$)</th>
+            <th>Falsos Negativos (FN)</th>
+            <th>Custo FN (R$)</th>
+            <th>Custo Total (R$)</th>
+        </tr>
+        
+        <tr>
+            <td>Reg. Logística</td>
+            <td>0.5</td>
+            <td>875</td>
+            <td>4375</td>
+            <td>1203</td>
+            <td>30075</td>
+            <td>34450</td>
+        </tr>
+        
+        <tr>
+            <td>Reg. Logística</td>
+            <td>0.347</td>
+            <td>1177</td>
+            <td>5885</td>
+            <td>621</td>
+            <td>15525</td>
+            <td>21410</td>
+        </tr>
+        
+        <tr>
+            <td>Random Forest</td>
+            <td>0.5</td>
+            <td>888</td>
+            <td>4440</td>
+            <td>1903</td>
+            <td>47575</td>
+            <td>52015</td>
+        </tr>
+        
+        <tr>
+            <td>Random Forest</td>
+            <td>0.367</td>
+            <td>1771</td>
+            <td>8855</td>
+            <td>1272</td>
+            <td>31800</td>
+            <td>40655</td>
+        </tr>
+        
+    </table>
+</body>
+</html>
