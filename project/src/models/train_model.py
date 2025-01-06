@@ -100,7 +100,7 @@ def ajustar_threshold(model, X_train, X_test, y_train, y_test, threshold_precisi
     # Nome dinâmico para o gráfico
     metrics_fig_path = os.path.join(figures_path, f'{model_name}_threshold_metrics_{metric}.png')
     plt.savefig(metrics_fig_path)
-    print(f"Gráfico de métricas salvo em: {metrics_fig_path}")
+    print(f"Gráfico de métricas salvo")
     plt.show()
 
     # Gráfico 2: Sensibilidade e Especificidade
@@ -127,7 +127,7 @@ def ajustar_threshold(model, X_train, X_test, y_train, y_test, threshold_precisi
     # Nome dinâmico para o gráfico
     sensitivity_fig_path = os.path.join(figures_path, f'{model_name}_sensitivity_specificity.png')
     plt.savefig(sensitivity_fig_path)
-    print(f"Gráfico de sensibilidade/especificidade salvo em: {sensitivity_fig_path}")
+    print(f"Gráfico de sensibilidade/especificidade salvo")
     plt.show()
 
     print(f"\nThreshold Ótimo (Precision >= {threshold_precision * 100}%): {optimal_threshold:.4f}")

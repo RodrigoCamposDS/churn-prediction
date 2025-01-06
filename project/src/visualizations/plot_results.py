@@ -230,7 +230,7 @@ def plot_class_distribution_comparison(original_data, resampled_data, column_nam
 
     # Salvar o gráfico
     plt.savefig(fig_path)
-    print(f"Gráfico de distribuição de classes salvo em: {fig_path}")
+    print(f"Gráfico de distribuição de classes salvo")
     plt.show()
 
     return
@@ -327,7 +327,7 @@ def monitorar_custo_gradiente(model_lr, X_train, y_train, max_iter=100, nome_arq
     # Caminho para salvar o gráfico de gradiente
     gradient_fig_path = os.path.join(figures_path, f'{nome_arquivo}_gradiente.png')
     plt.savefig(gradient_fig_path)
-    print(f"Gráfico de Gradiente salvo em: {gradient_fig_path}")
+    print(f"Gráfico de Gradiente salvo")
     plt.show()
 
     return
@@ -404,7 +404,7 @@ def comparar_gradientes(X_train, y_train, model_lr, max_iter=100, nome_arquivo='
     # Caminho para salvar o gráfico
     gradient_fig_path = os.path.join(figures_path, f'{nome_arquivo}.png')
     plt.savefig(gradient_fig_path)
-    print(f"Gráfico salvo em: {gradient_fig_path}")
+    print(f"Gráfico salvo")
     plt.show()
 
     return
@@ -456,7 +456,7 @@ def exibir_metricas_e_matriz_confusao(y_test, y_pred, nome_arquivo='confusion_ma
     
     # Salvar a figura
     plt.savefig(caminho_arquivo)
-    print(f"\nMatriz de confusão salva como: {caminho_arquivo}")
+    print(f"\nMatriz de confusão salva")
     
     # Exibir o gráfico
     plt.show()
@@ -535,7 +535,7 @@ def curva_de_aprendizado(model, X_train, y_train, cv=5, scoring='accuracy', trai
     # Caminho para salvar o gráfico
     learning_curve_fig_path = os.path.join(figures_path, f'{nome_arquivo}.png')
     plt.savefig(learning_curve_fig_path)
-    print(f"Gráfico salvo em: {learning_curve_fig_path}")
+    print(f"Gráfico salvo em")
     plt.show()
 
     return test_std, test_mean, test_scores
@@ -586,7 +586,7 @@ def plot_roc_curve(model, X_test, y_test, nome_arquivo='roc_curve'):
     # Caminho para salvar o gráfico
     roc_curve_fig_path = os.path.join(figures_path, f'{nome_arquivo}.png')
     plt.savefig(roc_curve_fig_path)
-    print(f"Gráfico ROC salvo em: {roc_curve_fig_path}")
+    print(f"Gráfico ROC salvo")
     plt.show()
 
     # Exibir o valor da AUC
@@ -695,7 +695,7 @@ def plot_probability_distribution(y_prob, nome_arquivo="model", bins=100):
 
     # Salvar o gráfico
     plt.savefig(fig_path)
-    print(f"Gráfico de distribuição de probabilidades salvo em: {fig_path}")
+    print(f"Gráfico de distribuição de probabilidades salvo")
     plt.show()
 
     return
@@ -743,7 +743,7 @@ def matriz_confusao(y_test, y_pred, nome_arquivo="model"):
     
     # Salvar o gráfico
     plt.savefig(matriz_fig_path)
-    print(f"Matriz de confusão salva em: {matriz_fig_path}")
+    print(f"Matriz de confusão salva")
     plt.close()
 
     return

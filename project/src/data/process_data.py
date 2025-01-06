@@ -41,34 +41,34 @@ def estatisticas_resumidas(coluna):
      <table border="1" style="border-collapse: collapse; width: 32.5%;">
         <thead>
             <tr>
-                <th style="text-align: center;">Tendência Central</th>
-                <th style="text-align: center;">Medidas de Dispersão</th>
+                <th style="text-align: left;">Tendência Central</th>
+                <th style="text-align: left;">Medidas de Dispersão</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td style="text-align: center;">Média:<span style="padding-left: 50px;">{media:.2f}</span></td>
-                <td style="text-align: center;">Mínimo:<span style="padding-left: 80px;">{minimo:.2f}</span></td>
+                <td style="text-align: left;">Média:<span style="padding-left: 50px;">{media:.2f}</span></td>
+                <td style="text-align: left;">Mínimo:<span style="padding-left: 80px;">{minimo:.2f}</span></td>
             </tr>
             <tr>
-                <td style="text-align: center;">Mediana:<span style="padding-left: 33px;">{mediana:.2f}</span></td>
-                <td style="text-align: center;">Máximo:<span style="padding-left: 75px;">{maximo:.2f}</span></td>
+                <td style="text-align: left;">Mediana:<span style="padding-left: 33px;">{mediana:.2f}</span></td>
+                <td style="text-align: left;">Máximo:<span style="padding-left: 75px;">{maximo:.2f}</span></td>
             </tr>
             <tr>
-                <td style="text-align: center;">Moda:<span style="padding-left: 51px;">{moda:.2f}</span></td>
-                <td style="text-align: center;">Desvio Padrão:<span style="padding-left: 30px;">{desvio_padrao:.2f}</span></td>
+                <td style="text-align: left;">Moda:<span style="padding-left: 51px;">{moda:.2f}</span></td>
+                <td style="text-align: left;">Desvio Padrão:<span style="padding-left: 30px;">{desvio_padrao:.2f}</span></td>
             </tr>
             <tr>
-                <td style="text-align: center;">Q1:<span style="padding-left: 71px;">{Q1:.2f}</span></td>
-                <td style="text-align: center;">Variância:<span style="padding-left: 65px;">{variancia:.2f}</span></td>
+                <td style="text-align: left;">Q1:<span style="padding-left: 71px;">{Q1:.2f}</span></td>
+                <td style="text-align: left;">Variância:<span style="padding-left: 65px;">{variancia:.2f}</span></td>
             </tr>
             <tr>
-                <td style="text-align: center;">Q2:<span style="padding-left: 69px;">{Q2:.2f}</span></td>
-                <td style="text-align: center;">Amplitude:<span style="padding-left: 58px;">{amplitude:.2f}</span></td>
+                <td style="text-align: left;">Q2:<span style="padding-left: 69px;">{Q2:.2f}</span></td>
+                <td style="text-align: left;">Amplitude:<span style="padding-left: 58px;">{amplitude:.2f}</span></td>
             </tr>
             <tr>
-                <td style="text-align: center;">Q3:<span style="padding-left: 69px;">{Q3:.2f}</span></td>
-                <td style="text-align: center;">DQ (IQR):<span style="padding-left: 65px;">{IQR:.2f}</span></td>
+                <td style="text-align: left;">Q3:<span style="padding-left: 69px;">{Q3:.2f}</span></td>
+                <td style="text-align: left;">DQ (IQR):<span style="padding-left: 65px;">{IQR:.2f}</span></td>
             </tr>
         </tbody>
     </table>
