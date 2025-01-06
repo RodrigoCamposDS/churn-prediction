@@ -312,7 +312,7 @@ def monitorar_custo_gradiente(model_lr, X_train, y_train, max_iter=100, nome_arq
     # Caminho para salvar o gráfico de custo
     cost_fig_path = os.path.join(figures_path, f'{nome_arquivo}_custo.png')
     plt.savefig(cost_fig_path)
-    print(f"Gráfico de Custo salvo em: {cost_fig_path}")
+    print(f"Gráfico de Custo salvo")
     plt.show()
 
     # Gráfico de Gradiente vs Iterações
