@@ -1,4 +1,4 @@
-#!/Users/rodrigocampos/Documents/Pandas/Desafio06/Churned/project/venv/bin/python
+#!/Users/rodrigocampos/Documents/data/case/Churned/venv/bin/python3.13
 """Stem.
 
 Stem and leaf plot from a csv or excel spreadsheet using best defaults. Can do text (text and dot) or graphic (kde,
