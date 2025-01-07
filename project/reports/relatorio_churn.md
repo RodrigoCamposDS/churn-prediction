@@ -1,23 +1,7 @@
 
-
-
-
----
 title: "Relatório Final: Análise de Churn"
 author: "Rodrigo Campos"
-date: "06/01/2025"
-
---- 
-
-
-
-
-
-
-
-
-
-
+date: "07/01/2025"
 
 
 ## **1. Objetivo do Projeto**

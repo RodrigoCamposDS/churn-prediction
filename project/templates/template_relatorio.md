@@ -1,14 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
 ## **1. Objetivo do Projeto**
 - **Contexto**: Desenvolver um modelo preditivo para identificar clientes com maior propensão ao churn (_Churned = 1_).
 - **Objetivo**: Fornecer insights acionáveis para estratégias de retenção.

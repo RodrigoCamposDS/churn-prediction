@@ -7,27 +7,30 @@ import seaborn as sns
 # Gerar a data atual para o cabeçalho
 data_atual = datetime.now().strftime("%d/%m/%Y")
 
-# Adicionar o cabeçalho dinâmico ao Markdown
-markdown_header = f"""
 
-
-
----
+markdown_header = """
 title: "Relatório Final: Análise de Churn"
 author: "Rodrigo Campos"
 date: "{data_atual}"
-
---- 
-
 """
 
+# Substituir o marcador de data no YAML
+markdown_header = markdown_header.format(data_atual=data_atual)
 
+# # Dados de exemplo
+# modelos = ["Reg. Logística", "Reg. Logística", "Random Forest", "Random Forest"]
+# thresholds = [0.5, 0.347, 0.5, 0.367]
+# fp_values = [875, 1177, 888, 1771]
+# fn_values = [1203, 621, 1903, 1272]
 
-# Dados de exemplo
-modelos = ["Reg. Logística", "Reg. Logística", "Random Forest", "Random Forest"]
-thresholds = [0.5, 0.347, 0.5, 0.367]
-fp_values = [875, 1177, 888, 1771]
-fn_values = [1203, 621, 1903, 1272]
+# Carregar os dados reais do arquivo .pkl
+df_dados = pd.read_pickle("../data/metrics_churn.pkl")
+
+# Extrair os valores das colunas
+modelos = df_dados["Modelo"].tolist()
+thresholds = df_dados["Threshold"].tolist()
+fp_values = df_dados["FP"].tolist()
+fn_values = df_dados["FN"].tolist()
 
 # Cálculo dos custos
 custos_fp = [fp * 5 for fp in fp_values]
