@@ -1,6 +1,24 @@
-# Relatório Final: Análise de Churn
+
+
+
 
 ---
+title: "Relatório Final: Análise de Churn"
+author: "Rodrigo Campos"
+date: "06/01/2025"
+
+--- 
+
+
+
+
+
+
+
+
+
+
+
 
 ## **1. Objetivo do Projeto**
 - **Contexto**: Desenvolver um modelo preditivo para identificar clientes com maior propensão ao churn (_Churned = 1_).
@@ -117,42 +135,43 @@
     <thead>
         <tr>
             <th>Modelo</th>
-            <th>Recall</th>
-            <th>Precision</th>
-            <th>Recall Ponto Ótimo</th>
-            <th>Precision Ponto Ótimo</th>
-            <th>AUC-PR</th>
-            <th>AUC-ROC</th>
-            <th>AUC-Precision-Recall</th>
+            <th>Threshold</th>
+            <th>Falsos Positivos (FP)</th>
+            <th>Falsos Negativos (FN)</th>
+            <th>Custo Total (R$)</th>
         </tr>
     </thead>
     <tbody>
-        
         <tr>
-            <td>Regressão Logística</td>
-            <td>0.65</td>
-            <td>0.72</td>
-            <td>0.82</td>
-            <td>0.61</td>
-            <td>0.79</td>
-            <td>0.77</td>
-            <td>0.79</td>
+            <td>Reg. Logística</td>
+            <td>0.5</td>
+            <td>875</td>
+            <td>1203</td>
+            <td>34450</td>
         </tr>
-        
+        <tr>
+            <td>Reg. Logística</td>
+            <td>0.347</td>
+            <td>1177</td>
+            <td>621</td>
+            <td>21410</td>
+        </tr>
         <tr>
             <td>Random Forest</td>
-            <td>0.63</td>
-            <td>0.78</td>
-            <td>0.75</td>
-            <td>0.68</td>
-            <td>0.79</td>
-            <td>0.79</td>
-            <td>0.82</td>
+            <td>0.5</td>
+            <td>888</td>
+            <td>1903</td>
+            <td>52015</td>
         </tr>
-        
+        <tr>
+            <td>Random Forest</td>
+            <td>0.367</td>
+            <td>1771</td>
+            <td>1272</td>
+            <td>40655</td>
+        </tr>
     </tbody>
 </table>
-
 
 #### **Visualizações**:
 1. **Curva ROC e Precision-Recall** para cada modelo.
@@ -205,62 +224,59 @@ O objetivo principal foi avaliar o impacto financeiro do uso dos modelos (Regres
 
 ---
 
-<style>
-    .output_area pre {
-        overflow-x: scroll; /* Habilita rolagem horizontal */
-        white-space: nowrap; /* Impede quebra de linha */
-    }
-</style>
-
 <h2><b>2. Comparação de Resultados</b></h2>
 <p>Os custos totais para cada cenário foram calculados com base nas matrizes de confusão geradas:</p>
 
-<table border="1" style="border-collapse: collapse; width: 100%;">
-    <tr>
-        <th>Modelo</th>
-        <th>Threshold</th>
-        <th>Falsos Positivos (FP)</th>
-        <th>Custo FP (R$)</th>
-        <th>Falsos Negativos (FN)</th>
-        <th>Custo FN (R$)</th>
-        <th>Custo Total (R$)</th>
-    </tr>
-    <tr>
-        <td>Reg. Logística</td>
-        <td>0.5</td>
-        <td>875</td>
-        <td>4.375,00</td>
-        <td>1203</td>
-        <td>30.075,00</td>
-        <td><b>34.450,00</b></td>
-    </tr>
-    <tr>
-        <td>Reg. Logística</td>
-        <td>0.347</td>
-        <td>1177</td>
-        <td>5.885,00</td>
-        <td>621</td>
-        <td>15.525,00</td>
-        <td><b>21.410,00</b></td>
-    </tr>
-    <tr>
-        <td>Random Forest</td>
-        <td>0.5</td>
-        <td>888</td>
-        <td>4.440,00</td>
-        <td>1903</td>
-        <td>47.575,00</td>
-        <td><b>52.015,00</b></td>
-    </tr>
-    <tr>
-        <td>Random Forest</td>
-        <td>0.367</td>
-        <td>1771</td>
-        <td>8.855,00</td>
-        <td>1272</td>
-        <td>31.800,00</td>
-        <td><b>40.655,00</b></td>
-    </tr>
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;">
+    <thead>
+        <tr>
+            <th>Modelo</th>
+            <th>Threshold</th>
+            <th>Falsos Positivos (FP)</th>
+            <th>Custo FP (R$)</th>
+            <th>Falsos Negativos (FN)</th>
+            <th>Custo FN (R$)</th>
+            <th>Custo Total (R$)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Reg. Logística</td>
+            <td>0.5</td>
+            <td>875</td>
+            <td>4,375.00</td>
+            <td>1203</td>
+            <td>30,075.00</td>
+            <td><b>34,450.00</b></td>
+        </tr>
+        <tr>
+            <td>Reg. Logística</td>
+            <td>0.347</td>
+            <td>1177</td>
+            <td>5,885.00</td>
+            <td>621</td>
+            <td>15,525.00</td>
+            <td><b>21,410.00</b></td>
+        </tr>
+        <tr>
+            <td>Random Forest</td>
+            <td>0.5</td>
+            <td>888</td>
+            <td>4,440.00</td>
+            <td>1903</td>
+            <td>47,575.00</td>
+            <td><b>52,015.00</b></td>
+        </tr>
+        <tr>
+            <td>Random Forest</td>
+            <td>0.367</td>
+            <td>1771</td>
+            <td>8,855.00</td>
+            <td>1272</td>
+            <td>31,800.00</td>
+            <td><b>40,655.00</b></td>
+        </tr>
+    </tbody>
 </table>
 
 ---

@@ -1,6 +1,13 @@
-# Relatório Final: Análise de Churn
 
----
+
+
+
+
+
+
+
+
+
 
 ## **1. Objetivo do Projeto**
 - **Contexto**: Desenvolver um modelo preditivo para identificar clientes com maior propensão ao churn (_Churned = 1_).
@@ -117,31 +124,24 @@
     <thead>
         <tr>
             <th>Modelo</th>
-            <th>Recall</th>
-            <th>Precision</th>
-            <th>Recall Ponto Ótimo</th>
-            <th>Precision Ponto Ótimo</th>
-            <th>AUC-PR</th>
-            <th>AUC-ROC</th>
-            <th>AUC-Precision-Recall</th>
+            <th>Threshold</th>
+            <th>Falsos Positivos (FP)</th>
+            <th>Falsos Negativos (FN)</th>
+            <th>Custo Total (R$)</th>
         </tr>
     </thead>
     <tbody>
-        {% for resultado in resultados %}
+        {%- for resultado in resultados %}
         <tr>
-            <td>{{ resultado.modelo }}</td>
-            <td>{{ resultado.recall }}</td>
-            <td>{{ resultado.precision }}</td>
-            <td>{{ resultado.recall_ponto_otimo }}</td>
-            <td>{{ resultado.precision_ponto_otimo }}</td>
-            <td>{{ resultado.auc_pr }}</td>
-            <td>{{ resultado.auc_roc }}</td>
-            <td>{{ resultado.auc_precision_recall }}</td>
+            <td>{{ resultado['Modelo'] }}</td>
+            <td>{{ resultado['Threshold'] }}</td>
+            <td>{{ resultado['FP'] }}</td>
+            <td>{{ resultado['FN'] }}</td>
+            <td>{{ resultado['Custo Total (R$)'] }}</td>
         </tr>
-        {% endfor %}
+        {%- endfor %}
     </tbody>
 </table>
-
 
 #### **Visualizações**:
 1. **Curva ROC e Precision-Recall** para cada modelo.
@@ -194,62 +194,34 @@ O objetivo principal foi avaliar o impacto financeiro do uso dos modelos (Regres
 
 ---
 
-<style>
-    .output_area pre {
-        overflow-x: scroll; /* Habilita rolagem horizontal */
-        white-space: nowrap; /* Impede quebra de linha */
-    }
-</style>
-
 <h2><b>2. Comparação de Resultados</b></h2>
 <p>Os custos totais para cada cenário foram calculados com base nas matrizes de confusão geradas:</p>
 
-<table border="1" style="border-collapse: collapse; width: 100%;">
-    <tr>
-        <th>Modelo</th>
-        <th>Threshold</th>
-        <th>Falsos Positivos (FP)</th>
-        <th>Custo FP (R$)</th>
-        <th>Falsos Negativos (FN)</th>
-        <th>Custo FN (R$)</th>
-        <th>Custo Total (R$)</th>
-    </tr>
-    <tr>
-        <td>Reg. Logística</td>
-        <td>0.5</td>
-        <td>875</td>
-        <td>4.375,00</td>
-        <td>1203</td>
-        <td>30.075,00</td>
-        <td><b>34.450,00</b></td>
-    </tr>
-    <tr>
-        <td>Reg. Logística</td>
-        <td>0.347</td>
-        <td>1177</td>
-        <td>5.885,00</td>
-        <td>621</td>
-        <td>15.525,00</td>
-        <td><b>21.410,00</b></td>
-    </tr>
-    <tr>
-        <td>Random Forest</td>
-        <td>0.5</td>
-        <td>888</td>
-        <td>4.440,00</td>
-        <td>1903</td>
-        <td>47.575,00</td>
-        <td><b>52.015,00</b></td>
-    </tr>
-    <tr>
-        <td>Random Forest</td>
-        <td>0.367</td>
-        <td>1771</td>
-        <td>8.855,00</td>
-        <td>1272</td>
-        <td>31.800,00</td>
-        <td><b>40.655,00</b></td>
-    </tr>
+<table border="1" style="border-collapse: collapse; width: 100%; text-align: center;">
+    <thead>
+        <tr>
+            <th>Modelo</th>
+            <th>Threshold</th>
+            <th>Falsos Positivos (FP)</th>
+            <th>Custo FP (R$)</th>
+            <th>Falsos Negativos (FN)</th>
+            <th>Custo FN (R$)</th>
+            <th>Custo Total (R$)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%- for resultado in resultados %}
+        <tr>
+            <td>{{ resultado['Modelo'] }}</td>
+            <td>{{ resultado['Threshold'] }}</td>
+            <td>{{ resultado['FP'] }}</td>
+            <td>{{ '{:,.2f}'.format(resultado['FP'] * 5) }}</td>
+            <td>{{ resultado['FN'] }}</td>
+            <td>{{ '{:,.2f}'.format(resultado['FN'] * 25) }}</td>
+            <td><b>{{ '{:,.2f}'.format(resultado['Custo Total (R$)']) }}</b></td>
+        </tr>
+        {%- endfor %}
+    </tbody>
 </table>
 
 ---
