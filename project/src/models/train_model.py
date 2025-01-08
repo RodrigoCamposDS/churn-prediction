@@ -234,7 +234,7 @@ def treino_e_teste(model, X_train, y_train, X_test, y_test):
 
     # Gerar HTML com as métricas para treino e teste
     metrics_html = f"""
-    <table border="1" style="border-collapse: collapse; width: 15%;">
+    <table border="1" style="border-collapse: collapse; width: 50%;">
         <thead>
             <tr>
                 <th style="text-align: left;">Métrica</th>

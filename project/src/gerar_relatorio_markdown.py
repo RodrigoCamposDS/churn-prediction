@@ -17,11 +17,6 @@ date: "{data_atual}"
 # Substituir o marcador de data no YAML
 markdown_header = markdown_header.format(data_atual=data_atual)
 
-# # Dados de exemplo
-# modelos = ["Reg. Logística", "Reg. Logística", "Random Forest", "Random Forest"]
-# thresholds = [0.5, 0.347, 0.5, 0.367]
-# fp_values = [875, 1177, 888, 1771]
-# fn_values = [1203, 621, 1903, 1272]
 
 # Carregar os dados reais do arquivo .pkl
 df_dados = pd.read_pickle("../data/metrics_churn.pkl")
@@ -70,3 +65,5 @@ with open("../reports/relatorio_churn.md", "w") as file:
     file.write(full_markdown_content)
 
 print("Relatório Markdown gerado com sucesso!")
+
+
