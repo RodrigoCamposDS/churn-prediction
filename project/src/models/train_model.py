@@ -133,7 +133,7 @@ def ajustar_threshold(model, X_train, X_test, y_train, y_test, threshold_precisi
     print(f"\nThreshold Ótimo (Precision >= {threshold_precision * 100}%): {optimal_threshold:.4f}")
     print(f"Melhor {metric.capitalize()} com Threshold Ótimo: {best_metric:.4f}")
 
-    return optimal_threshold, y_pred_th_otimo, y_prob_th
+    return optimal_threshold, y_pred_th_otimo, y_prob_th, thresholds
 
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -270,3 +270,99 @@ def treino_e_teste(model, X_train, y_train, X_test, y_test):
     display(HTML(metrics_html))
 
     return
+
+
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Ajuste na função para desenhar os intervalos de conformidade
+def plot_conformal_intervals(y_true, y_pred, y_intervals, sample_size=100):
+    indices = range(sample_size)
+
+    # Verificar o formato dos intervalos
+    if y_intervals.ndim == 2:
+        y_lower = y_intervals[:, 0]
+        y_upper = y_intervals[:, 1]
+    elif y_intervals.ndim == 1:
+        y_lower = y_pred - y_intervals
+        y_upper = y_pred + y_intervals
+    else:
+        raise ValueError("Os intervalos de conformidade não estão no formato esperado.")
+
+    # Plotagem
+    plt.plot(indices, y_true[:sample_size], 'o', label="Valor Verdadeiro", color='black')
+    plt.plot(indices, y_pred[:sample_size], 'x', label="Previsão", color='red')
+    plt.fill_between(
+        indices,
+        y_lower[:sample_size],
+        y_upper[:sample_size],
+        color='gray',
+        alpha=0.5,
+        label="Intervalo de Conformidade"
+    )
+    plt.title("Intervalos de Conformidade nas Previsões")
+    plt.xlabel("Amostra")
+    plt.legend()
+    plt.show()
+
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    import numpy as np
+import pandas as pd
+from mapie.classification import MapieClassifier
+from sklearn.metrics import accuracy_score
+
+# Função genérica para aplicar o MAPIE
+def apply_mapie(model, X_train, X_test, y_train, y_test, methods=["score", "lac"], alpha=0.1):
+    """
+    Aplica o MAPIE para conformal predictions em um modelo de classificação.
+    
+    Parâmetros:
+        - model: Modelo de classificação a ser usado (ex: LogisticRegression, RandomForestClassifier).
+        - X_train: Dados de treino (features).
+        - X_test: Dados de teste (features).
+        - y_train: Dados de treino (target).
+        - y_test: Dados de teste (target).
+        - methods: Lista de métodos de conformal predictions a serem aplicados. Padrão: ["score", "lac"].
+        - alpha: Nível de significância para os intervalos de conformidade. Padrão: 0.1.
+    
+    Retorno:
+        - Um DataFrame com os resultados de acurácia e tamanhos médios dos intervalos.
+    """
+    results = []
+    for method in methods:
+        try:
+            # Aplicar o MAPIE
+            mapie = MapieClassifier(estimator=model, method=method)
+            mapie.fit(X_train, y_train)
+            y_pred, y_pred_intervals = mapie.predict(X_test, alpha=alpha)
+            
+            # Garantir que os intervalos são numéricos
+            y_pred_intervals = y_pred_intervals.astype(float)
+            
+            # Calcular métricas
+            accuracy = accuracy_score(y_test, y_pred)
+            interval_sizes = np.mean(np.abs(y_pred_intervals[:, 1] - y_pred_intervals[:, 0]))
+            
+            # Armazenar resultados
+            results.append({
+                "Modelo": type(model).__name__,
+                "Método": method,
+                "Acurácia": accuracy,
+                "Tamanho Médio do Intervalo": interval_sizes
+            })
+        except Exception as e:
+            print(f"Erro com o modelo {type(model).__name__} usando o método {method}: {e}")
+
+    # Retornar os resultados em um DataFrame
+    return pd.DataFrame(results)
+
+# --- Exemplo de uso ---
+

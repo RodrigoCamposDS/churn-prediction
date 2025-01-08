@@ -1,9 +1,29 @@
+import os
 import pandas as pd
 from jinja2 import Template
 from datetime import datetime
 
-# Carregar os dados do arquivo .pkl
-df_dados = pd.read_pickle("../data/metrics_churn.pkl")
+# Caminho do arquivo .pkl
+file_path = "./data/processed_data/metrics_churn.pkl"
+
+# Verificar se o arquivo existe
+if not os.path.exists(file_path):
+    print(f"Erro: Arquivo {file_path} não encontrado!")
+    exit()
+
+# Tentar carregar os dados do arquivo .pkl
+try:
+    df_dados = pd.read_pickle(file_path)
+    print("Arquivo carregado com sucesso!")
+except Exception as e:
+    print(f"Erro ao carregar o arquivo .pkl: {e}")
+    exit()
+
+# Verificar se as colunas necessárias estão no DataFrame
+required_columns = ["Modelo", "Threshold", "FP", "FN"]
+if not all(col in df_dados.columns for col in required_columns):
+    print(f"Erro: O DataFrame não contém as colunas necessárias: {required_columns}")
+    exit()
 
 # Data atual para o documento
 data_atual = datetime.now().strftime("%d/%m/%Y")
@@ -18,6 +38,9 @@ fn_values = df_dados["FN"].tolist()
 custos_fp = [fp * 5 for fp in fp_values]
 custos_fn = [fn * 25 for fn in fn_values]
 custos_totais = [fp + fn for fp, fn in zip(custos_fp, custos_fn)]
+
+# Adicionar coluna de custo total no DataFrame
+df_dados["Custo Total (R$)"] = custos_totais
 
 # Encontrar o modelo vencedor
 modelo_vencedor = df_dados.loc[df_dados["Custo Total (R$)"].idxmin(), "Modelo"]
@@ -81,8 +104,12 @@ conteudo_latex = template.render(
     data_atual=data_atual, dados_tabela=dados_tabela, modelo_vencedor=modelo_vencedor, menor_custo=menor_custo
 )
 
+# Garantir que o diretório reports exista
+os.makedirs("../reports", exist_ok=True)
+
 # Salvar o conteúdo gerado em um arquivo LaTeX
-with open("../reports/relatorio_churn.tex", "w") as file:
+output_file = "../reports/relatorio_churn.tex"
+with open(output_file, "w") as file:
     file.write(conteudo_latex)
 
-print("Arquivo LaTeX gerado com sucesso!")
+print(f"Arquivo LaTeX gerado com sucesso em: {output_file}")

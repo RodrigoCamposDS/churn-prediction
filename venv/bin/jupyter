@@ -1,4 +1,4 @@
-#!/Users/rodrigocampos/Documents/data/case/Churned/venv/bin/python3.13
+#!/Users/rodrigocampos/Documents/data/case/Churned/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

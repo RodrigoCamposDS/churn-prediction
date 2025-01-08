@@ -1,9 +1,13 @@
 {
-    "python.analysis.extraPaths": [
-        "./project/src"
-    ],
-    "python.envFile": "${workspaceFolder}/.env",
-    "terminal.integrated.env.osx": {
-        "PYTHONPATH": "${workspaceFolder}/project/src"
-    }
+  "python.analysis.extraPaths": [
+      "./project/src"
+  ],
+  "terminal.integrated.env.osx": {
+      "PYTHONPATH": "${workspaceFolder}/project/src"
+  },
+  "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+
+  
+  "python.envFile": "${workspaceFolder}/.env"
+
 }
