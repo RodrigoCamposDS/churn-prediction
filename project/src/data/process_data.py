@@ -243,7 +243,7 @@ def analisar_qualidade_dados(df):
 
     # Gerando o HTML
     stats_html = f"""
-     <table border="1" style="border-collapse: collapse; width: 32.5%;">
+     <table border="1" style="border-collapse: collapse; width: 50%;">
         <thead>
             <tr>
                 <th style="text-align: left; padding-right: 50px;">Coluna</th>
@@ -386,7 +386,7 @@ def generate_class_table(df, class_column):
 
     # Gerar a tabela HTML manualmente com a concatenação correta
     stats_html = """
-    <table border="1" style="border-collapse: collapse; width: 32.5%;">
+    <table border="1" style="border-collapse: collapse; width: 50%;">
         <thead>
             <tr>
                 <th style="padding: 10px; text-align: center;">Classe</th>
