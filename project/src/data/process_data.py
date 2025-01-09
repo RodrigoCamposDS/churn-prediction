@@ -243,7 +243,7 @@ def analisar_qualidade_dados(df):
 
     # Gerando o HTML
     stats_html = f"""
-     <table border="1" style="border-collapse: collapse; width:50%;">
+     <table border="1" style="border-collapse: collapse; width:100%;">
         <thead>
             <tr>
                 <th style="text-align: left; padding-right: 50px;">Coluna</th>
