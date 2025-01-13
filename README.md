@@ -6,6 +6,30 @@ Aplicamos **Logistic Regression** e **Random Forest** como principais algoritmos
 
 ---
 
+##  **Estrutura do Projeto**
+
+```bash
+churn-prediction/
+├── .pytest_cache/             # Cache do Pytest
+├── .vscode/                   # Configurações do Visual Studio Code
+├── projeto/                   # Diretório principal do projeto
+│   ├── docs/                  # Documentação do projeto
+│   ├── notebooks/             # Notebooks Jupyter utilizados para análises
+│   ├── reports/               # Relatórios gerados a partir das análises
+│   └── src/                   # Código fonte principal
+│       ├── __pycache__/       # Arquivos cacheados do Python
+│       ├── data/              # Diretório de dados
+│       ├── features/          # Features de engenharia de dados
+│       ├── models/            # Modelos treinados
+│       └── visualizations/    # Scripts de visualização de dados
+├── templates/                 # Templates para relatórios
+├── tests/                     # Scripts de teste do projeto
+├── pyproject.toml             # Configuração do projeto gerenciado pelo Poetry
+├── requirements.txt           # Lista de dependências do projeto
+└── setup.py                   # Script de instalação do pacote
+```
+---
+
 ##  **Objetivos do Projeto**
 1. **Prever clientes propensos ao churn** para auxiliar na retenção proativa.
 2. **Reduzir o impacto financeiro** do churn, priorizando a minimização dos falsos negativos.
